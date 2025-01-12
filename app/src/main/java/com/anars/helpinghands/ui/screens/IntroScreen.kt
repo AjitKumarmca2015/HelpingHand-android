@@ -136,7 +136,7 @@ fun IntroScreen(navController: NavController) {
             pageSize = PageSize.Fill
         ) {
             val realPageIndex = it % 6
-            ItemGreeting(greetings[it])
+            ItemGreeting(greetings[realPageIndex])
         }
 
 
@@ -156,7 +156,7 @@ fun IntroScreen(navController: NavController) {
 
         OrangeButton(
             title = stringResource(id = R.string.proceed_to_login),
-            modifier = Modifier.padding(start = 24.dp, end = 24.dp, bottom = 48.dp)
+            modifier = Modifier.padding(start = 24.dp, end = 24.dp, bottom = 80.dp)
         ) {
             navController.navigate("main_screen") {
                 popUpTo("intro_screen") { inclusive = true }
@@ -237,8 +237,8 @@ fun OrangeButton(
         }) {
         Text(
             text = title,
-            fontFamily = FontFamily(Font(R.font.lato_regular)),
-            fontSize = 16.sp,
+            fontFamily = FontFamily(Font(R.font.lato_bold)),
+            fontSize = 18.sp,
             color = colorResource(id = R.color.white)
         )
     }
