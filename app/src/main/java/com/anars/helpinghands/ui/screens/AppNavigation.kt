@@ -22,6 +22,9 @@ fun  AppNavigation() {
         composable("main_screen") {
             MainScreen()
         }
+        composable("login_screen") {
+            LoginScreen(navController)
+        }
     }
 
 }

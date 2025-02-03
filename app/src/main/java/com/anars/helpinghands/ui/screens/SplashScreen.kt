@@ -57,7 +57,7 @@ fun SplashScreen(navController: NavController) {
                     color = whiteColor,
                     fontSize = 50.sp,
                     fontFamily = LatoFontFamily,
-                    fontWeight = FontWeight.Normal,
+                    fontWeight = FontWeight.Light,
                     ),
                 textAlign = TextAlign.Center
 

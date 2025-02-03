@@ -8,5 +8,6 @@ import com.anars.helpinghands.R
 val LatoFontFamily = FontFamily(
     Font(R.font.lato_bold, FontWeight.Bold),
     Font(R.font.lato_regular, FontWeight.Normal),
-    Font(R.font.lato_black, FontWeight.ExtraBold)
+    Font(R.font.lato_black, FontWeight.ExtraBold),
+    Font(R.font.poiretone, FontWeight.Light)
 )

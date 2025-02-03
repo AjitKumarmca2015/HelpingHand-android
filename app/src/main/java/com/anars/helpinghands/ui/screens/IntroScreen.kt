@@ -116,12 +116,12 @@ fun IntroScreen(navController: NavController) {
                 .align(Alignment.End)
                 .padding( 20.dp) // Optional padding
                 .clickable {
-                    navController.navigate("main_screen") {
+                    navController.navigate("login_screen") {
                         popUpTo("intro_screen") { inclusive = true }
                     }
                 },
             fontFamily = FontFamily(Font(R.font.lato_regular)),
-            fontSize = 18.sp,
+            fontSize = 16.sp,
             color = colorResource(id = R.color.black),
             textAlign = TextAlign.Right,
             textDecoration = TextDecoration.Underline // Adds underline
@@ -151,7 +151,7 @@ fun IntroScreen(navController: NavController) {
             unSelectedColor = R.color.indicator_unselected_color
         )
 
-        Spacer(modifier = Modifier.height(100.dp))
+        Spacer(modifier = Modifier.height(80.dp))
 
 
         OrangeButton(
@@ -183,17 +183,16 @@ fun ItemGreeting(item: Triple<Int, String, String>) {
         Text(
             text = item.second,
             fontFamily = FontFamily(Font(R.font.lato_black)),
-            fontSize = 24.sp,
+            fontSize = 20.sp,
             color = colorResource(id = R.color.color_accent)
 
         )
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
 
         Text(
             text = item.third,
             fontFamily = FontFamily(Font(R.font.lato_regular)),
-            fontSize = 18.sp,
             style = TextStyle(
                 fontSize = 16.sp,
                 lineHeight = 26.sp // Adjust the line height (spacing)
@@ -202,14 +201,14 @@ fun ItemGreeting(item: Triple<Int, String, String>) {
             color = colorResource(id = R.color.black)
         )
 
-        Spacer(modifier = Modifier.height(84.dp))
+        Spacer(modifier = Modifier.height(100.dp))
 
 
 
         Image(
             painter = painterResource(id = item.first),
             contentDescription = "image",
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Fit
         )
 
 
@@ -229,7 +228,7 @@ fun OrangeButton(
     Button(
         modifier = modifier
             .fillMaxWidth()
-            .height(56.dp),
+            .height(42.dp),
         shape = RoundedCornerShape(8),
         colors = ButtonDefaults.textButtonColors(colorResource(id = R.color.color_accent)),
         onClick = {
@@ -238,7 +237,7 @@ fun OrangeButton(
         Text(
             text = title,
             fontFamily = FontFamily(Font(R.font.lato_bold)),
-            fontSize = 18.sp,
+            fontSize = 16.sp,
             color = colorResource(id = R.color.white)
         )
     }
@@ -264,14 +263,14 @@ fun DotsIndicator(
             if (index == selectedIndex) {
                 Box(
                     modifier = Modifier
-                        .size(10.dp)
+                        .size(8.dp)
                         .clip(CircleShape)
                         .background(colorResource(id = selectedColor))
                 )
             } else {
                 Box(
                     modifier = Modifier
-                        .size(10.dp)
+                        .size(8.dp)
                         .clip(CircleShape)
                         .background(colorResource(id = unSelectedColor))
                 )
