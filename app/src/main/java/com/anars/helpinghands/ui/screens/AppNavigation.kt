@@ -25,6 +25,9 @@ fun  AppNavigation() {
         composable("login_screen") {
             LoginScreen(navController)
         }
+        composable("otp_screen") {
+            OtpVerificationScreen(navController)
+        }
     }
 
 }
