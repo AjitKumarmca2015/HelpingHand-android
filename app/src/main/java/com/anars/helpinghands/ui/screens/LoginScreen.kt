@@ -61,6 +61,7 @@ import androidx.navigation.NavController
 import com.anars.helpinghands.R
 import com.anars.helpinghands.data.Country
 import com.anars.helpinghands.ui.theme.HelpingHandsTheme
+import com.anars.helpinghands.ui.theme.LatoFontFamily
 import com.anars.helpinghands.utils.CountryData.countries
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -89,12 +90,17 @@ fun LoginScreen(navController: NavController) {
                 text = "Log In",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
-                style = TextStyle(fontSize = 22.sp, fontWeight = FontWeight.Bold, color = colorResource(id = R.color.color_accent))
+                style = TextStyle(
+                    fontSize = 20.sp,
+                    fontFamily = LatoFontFamily,
+                    fontWeight = FontWeight.Bold,
+                    color = colorResource(id = R.color.color_accent)
+                )
             )
 
             // Illustration Image
 
-            Spacer(modifier = Modifier.height(85.dp))
+            Spacer(modifier = Modifier.height(75.dp))
             Image(
                 painter = painterResource(id = R.drawable.ic_login),
                 contentDescription = "Login Illustration",
@@ -104,14 +110,16 @@ fun LoginScreen(navController: NavController) {
                     .fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(65.dp))
+            Spacer(modifier = Modifier.height(50.dp))
 
             // Mobile Number Field
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
                     text = stringResource(id = R.string.mobile_number),
                     style = TextStyle(fontWeight = FontWeight.Light, fontSize = 14.sp),
-                    color = Color.Black
+                    color = Color.Black,
+                    fontFamily = LatoFontFamily,
+                    fontWeight = FontWeight.Normal,
                 )
                 Spacer(modifier = Modifier.height(8.dp))
 
@@ -132,7 +140,9 @@ fun LoginScreen(navController: NavController) {
                             text = selectedCountry,
                             modifier = Modifier
                                 .clickable { showDialog = true }
-                                .padding(8.dp)
+                                .padding(8.dp),
+                            fontFamily = LatoFontFamily,
+                            fontWeight = FontWeight.Normal,
                         )
 
                     }
@@ -157,8 +167,15 @@ fun LoginScreen(navController: NavController) {
                             if (it.length <= 10) {
                                 phoneNumber = it
                             }
-                                        },
-                        placeholder = { Text("Enter Your Mobile Number") },
+                        },
+                        placeholder = {
+                            Text(
+                                "Enter Your Mobile Number",
+                                fontSize = 14.sp,
+                                fontFamily = LatoFontFamily,
+                                fontWeight = FontWeight.Normal,
+                            )
+                        },
                         singleLine = true,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -181,14 +198,20 @@ fun LoginScreen(navController: NavController) {
 
             // Login Button
             Button(
-                onClick = {navController.navigate("otp_screen")},
+                onClick = { navController.navigate("otp_screen") },
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.color_accent)),
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding( start = 16.dp, end = 16.dp)
+                    .padding(start = 16.dp, end = 16.dp)
             ) {
-                Text(text = stringResource(id = R.string.login_with_otp), color = Color.White, fontSize = 16.sp)
+                Text(
+                    text = stringResource(id = R.string.login_with_otp),
+                    fontWeight = FontWeight.Bold,
+                    fontFamily = LatoFontFamily,
+                    color = Color.White,
+                    fontSize = 16.sp
+                )
             }
 
             // Terms and Conditions
@@ -196,8 +219,14 @@ fun LoginScreen(navController: NavController) {
                 onClick = {},
                 modifier = Modifier.align(Alignment.CenterHorizontally),
 
-            ) {
-                Text(text = "Terms & Conditions", color = colorResource(R.color.primary), fontSize = 14.sp)
+                ) {
+                Text(
+                    text = "Terms & Conditions",
+                    fontWeight = FontWeight.Normal,
+                    fontFamily = LatoFontFamily,
+                    color = colorResource(R.color.primary),
+                    fontSize = 14.sp
+                )
             }
         }
     }

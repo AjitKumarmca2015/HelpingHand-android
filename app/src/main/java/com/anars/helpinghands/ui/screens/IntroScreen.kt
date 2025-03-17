@@ -49,12 +49,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.anars.helpinghands.R
+import com.anars.helpinghands.ui.theme.LatoFontFamily
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -116,11 +118,13 @@ fun IntroScreen(navController: NavController) {
                 .align(Alignment.End)
                 .padding( 20.dp) // Optional padding
                 .clickable {
-                    navController.navigate("login_screen") {
+                    navController.navigate("home_screen") {
                         popUpTo("intro_screen") { inclusive = true }
                     }
                 },
-            fontFamily = FontFamily(Font(R.font.lato_regular)),
+
+            fontFamily = LatoFontFamily,
+            fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
             color = colorResource(id = R.color.black),
             textAlign = TextAlign.Right,
@@ -158,7 +162,7 @@ fun IntroScreen(navController: NavController) {
             title = stringResource(id = R.string.proceed_to_login),
             modifier = Modifier.padding(start = 24.dp, end = 24.dp, bottom = 80.dp)
         ) {
-            navController.navigate("main_screen") {
+            navController.navigate("login_screen") {
                 popUpTo("intro_screen") { inclusive = true }
             }
         }
@@ -182,8 +186,9 @@ fun ItemGreeting(item: Triple<Int, String, String>) {
 
         Text(
             text = item.second,
-            fontFamily = FontFamily(Font(R.font.lato_black)),
             fontSize = 20.sp,
+            fontFamily = LatoFontFamily,
+            fontWeight = FontWeight.Black,
             color = colorResource(id = R.color.color_accent)
 
         )
@@ -192,7 +197,8 @@ fun ItemGreeting(item: Triple<Int, String, String>) {
 
         Text(
             text = item.third,
-            fontFamily = FontFamily(Font(R.font.lato_regular)),
+            fontFamily = LatoFontFamily,
+            fontWeight = FontWeight.Normal,
             style = TextStyle(
                 fontSize = 16.sp,
                 lineHeight = 26.sp // Adjust the line height (spacing)
@@ -236,8 +242,9 @@ fun OrangeButton(
         }) {
         Text(
             text = title,
-            fontFamily = FontFamily(Font(R.font.lato_bold)),
             fontSize = 16.sp,
+            fontFamily = LatoFontFamily,
+            fontWeight = FontWeight.Bold,
             color = colorResource(id = R.color.white)
         )
     }

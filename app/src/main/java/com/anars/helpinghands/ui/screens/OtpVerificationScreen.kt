@@ -2,6 +2,7 @@ package com.anars.helpinghands.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,11 +21,14 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.TabRowDefaults.Divider
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.lightColors
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -42,6 +46,7 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.colorResource
@@ -49,6 +54,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -56,6 +62,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.anars.helpinghands.R
+import com.anars.helpinghands.ui.theme.LatoFontFamily
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -92,10 +99,15 @@ fun OtpVerificationScreen(navController: NavController) {
                 text = stringResource(id = R.string.otp_verification),
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
-                style = TextStyle(fontSize = 22.sp, fontWeight = FontWeight.Bold, color = colorResource(id = R.color.color_accent))
+                fontFamily = LatoFontFamily,
+                fontWeight = FontWeight.Bold,
+                style = TextStyle(
+                    fontSize = 20.sp,
+                    color = colorResource(id = R.color.color_accent)
+                )
             )
 
-            Spacer(modifier = Modifier.height(85.dp))
+            Spacer(modifier = Modifier.height(80.dp))
             // Illustration Image
             Image(
                 painter = painterResource(id = R.drawable.ic_otp_verification),
@@ -116,14 +128,20 @@ fun OtpVerificationScreen(navController: NavController) {
             // Submit Button
 
             Button(
-                onClick = {navController.navigate("otp_screen")},
+                onClick = { navController.navigate("home_screen") },
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.color_accent)),
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 16.dp, end = 16.dp)
             ) {
-                Text(text = stringResource(id = R.string.submit), color = Color.White, fontSize = 16.sp)
+                Text(
+                    text = stringResource(id = R.string.submit),
+                    fontFamily = LatoFontFamily,
+                    fontWeight = FontWeight.Normal,
+                    color = Color.White,
+                    fontSize = 16.sp
+                )
             }
 
 
@@ -138,9 +156,12 @@ fun OtpVerificationScreen(navController: NavController) {
                 Spacer(modifier = Modifier.weight(1f))
                 Text(
                     text = String.format("00:%02d", timer),
-                    style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold, color = colorResource(
-                        id = R.color.grey
-                    )),
+                    style = TextStyle(
+                        fontSize = 18.sp,  fontFamily = LatoFontFamily,
+                        fontWeight = FontWeight.Normal, color = colorResource(
+                            id = R.color.grey
+                        )
+                    ),
                     modifier = Modifier.weight(1f), // Centers the timer
                     textAlign = TextAlign.Center
                 )
@@ -154,12 +175,15 @@ fun OtpVerificationScreen(navController: NavController) {
                         .clickable {
                             timer = 59 // Reset timer on resend
                         },
-                    textAlign = TextAlign.End
+                    textAlign = TextAlign.End,
+                    fontFamily = LatoFontFamily,
+                    fontWeight = FontWeight.Normal,
                 )
             }
         }
     }
 }
+
 @Composable
 fun OtpInputField(otpCode: String, onOtpChange: (String) -> Unit) {
     val focusRequesters = List(4) { FocusRequester() } // Focus control for auto-moving
@@ -193,7 +217,8 @@ fun OtpInputField(otpCode: String, onOtpChange: (String) -> Unit) {
                     },
                     textStyle = TextStyle(
                         fontSize = 24.sp,
-                        color = Color.Blue,
+                        color = Color.Black,
+
                         textAlign = TextAlign.Center,
                     ),
                     keyboardOptions = KeyboardOptions.Default.copy(

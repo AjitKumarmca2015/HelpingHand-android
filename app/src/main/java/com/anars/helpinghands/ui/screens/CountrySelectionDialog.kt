@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.anars.helpinghands.R
 import com.anars.helpinghands.data.Country
+import com.anars.helpinghands.ui.theme.LatoFontFamily
 
 @Composable
 fun CountrySelectionDialog(
@@ -62,6 +63,7 @@ fun CountrySelectionDialog(
                     Text(
                         text = "Select Country",
                         fontSize = 18.sp,
+                        fontFamily = LatoFontFamily,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .padding(16.dp)
@@ -86,7 +88,9 @@ fun CountrySelectionDialog(
                                         fontSize = 14.sp,
                                         fontWeight = FontWeight.Normal,
                                         color = colorResource(id = R.color.black)
-                                    )
+                                    ),
+                                    fontFamily = LatoFontFamily,
+                                    fontWeight = FontWeight.Normal,
 
                                 )
                                 Text(
@@ -95,7 +99,9 @@ fun CountrySelectionDialog(
                                         fontSize = 14.sp,
                                         fontWeight = FontWeight.Light,
                                         color = colorResource(id = R.color.black)
-                                    )
+                                    ),
+                                    fontFamily = LatoFontFamily,
+                                    fontWeight = FontWeight.Normal,
 
                                 )
                             }

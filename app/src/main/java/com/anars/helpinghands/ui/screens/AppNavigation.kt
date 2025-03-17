@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.anars.helpinghands.ui.home.HomeScreen
 
 @Composable
 fun  AppNavigation() {
@@ -19,14 +20,14 @@ fun  AppNavigation() {
         composable("intro_screen"){
             IntroScreen(navController)
         }
-        composable("main_screen") {
-            MainScreen()
-        }
         composable("login_screen") {
             LoginScreen(navController)
         }
         composable("otp_screen") {
             OtpVerificationScreen(navController)
+        }
+        composable("home_screen") {
+            HomeScreen(navController)
         }
     }
 

@@ -54,5 +54,6 @@ fun HelpingHandsTheme(
         colorScheme = colorScheme,
         typography = Typography,
         content = content
+
     )
 }

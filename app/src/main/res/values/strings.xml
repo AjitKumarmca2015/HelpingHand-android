@@ -7,4 +7,5 @@
     <string name="login_with_otp">Log in with OTP</string>
     <string name="otp_verification">OTP Verification</string>
     <string name="submit">Submit</string>
+    <string name="home">Home</string>
 </resources>
